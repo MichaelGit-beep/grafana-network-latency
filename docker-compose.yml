@@ -4,6 +4,7 @@ services:
 
   influxdb:
     image: "influxdb:1.8"
+    restart: unless-stopped
     hostname: "influxdb"
     environment:
     - "INFLUXDB_DB=network_latency"
@@ -14,6 +15,7 @@ services:
 
   telegraf:
     image: "telegraf:latest"
+    restart: unless-stopped
     hostname: "telegraf"
     networks:
     - net_latency
@@ -23,7 +25,9 @@ services:
 
   grafana:
     image: "grafana/grafana:latest"
+    restart: unless-stopped
     hostname: "grafana"
+    user: "root"
     environment:
     - "GF_SECURITY_ADMIN_PASSWORD=CHANGEME"
     - "GF_AUTH_ANONYMOUS_ENABLED=true"
@@ -33,7 +37,7 @@ services:
     - "3000:3000"
     volumes:
     - "./config/grafana/provisioning:/etc/grafana/provisioning"
-
+    - "./config/grafana/plugins:/var/lib/grafana/plugins"
 networks:
   net_latency:
 volumes:
