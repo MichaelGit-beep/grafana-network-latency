@@ -8,12 +8,12 @@
 ```
 Access grafana on localhost:3000 username - "admin" password - "CHANGEME"
 
-# Add monitored target
+# Add monitoring target
 ```
 1. Add URL to ./config/telegraf/telegraf.conf
 2. docker-compose restart
 ```
-# Delete monitored target
+# Delete monitoring target
 ```
 1. Remove URL from ./config/telegraf/telegraf.conf
 2. docker-compose down
