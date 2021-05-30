@@ -29,15 +29,16 @@ services:
     hostname: "grafana"
     user: "root"
     environment:
-    - "GF_SECURITY_ADMIN_PASSWORD=CHANGEME"
+    - "GF_SECURITY_ADMIN_PASSWORD=admin"
     - "GF_AUTH_ANONYMOUS_ENABLED=true"
     networks:
     - net_latency
     ports:
-    - "3000:3000"
+    - "3001:3000"
     volumes:
     - "./config/grafana/provisioning:/etc/grafana/provisioning"
     - "./config/grafana/plugins:/var/lib/grafana/plugins"
+    - "./config/grafana/grafana.db:/var/lib/grafana/grafana.db"
 networks:
   net_latency:
 volumes:
