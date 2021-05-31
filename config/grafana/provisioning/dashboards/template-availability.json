@@ -77,7 +77,7 @@
         "seriesOverrides": [],
         "targets": [
           {
-            "alias": "Available",
+            "alias": "$Host",
             "groupBy": [
               {
                 "params": [
